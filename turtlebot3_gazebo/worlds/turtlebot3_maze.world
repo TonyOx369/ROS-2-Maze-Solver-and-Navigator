@@ -1,0 +1,232 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="maze_world">
+
+    <!-- Lighting -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Ground Plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+        <!-- Outer Bounding Walls (12x12 meters) -->
+    <model name="outer_wall_north">
+      <static>true</static>
+      <pose>0.5 6 0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>11 0.2 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>11 0.2 1</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="outer_wall_south">
+      <static>true</static>
+      <pose>-0.5 -6 0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>11 0.2 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>11 0.2 1</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="outer_wall_east">
+      <static>true</static>
+      <pose>6 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.2 12 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 12 1</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="outer_wall_west">
+      <static>true</static>
+      <pose>-6 0 0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>0.2 12 1</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>0.2 12 1</size></box></geometry>
+          <material><ambient>0.7 0.7 0.7 1</ambient></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Inner Maze Wall 1: Left Vertical -->
+<model name="inner_wall_left">
+  <static>true</static>
+  <pose>-4 1 0 0 0 0</pose>  <!-- X: Left side -->
+  <link name="link">
+    <collision name="collision">
+      <geometry><box><size>0.2 10 1</size></box></geometry>
+    </collision>
+    <visual name="visual">
+      <geometry><box><size>0.2 10 1</size></box></geometry>
+      <material><ambient>0.3 0.3 0.9 1</ambient></material>
+    </visual>
+  </link>
+</model>
+
+<!-- Inner Maze Wall 2: Top Horizontal -->
+<model name="inner_wall_top_horizontal">
+  <static>true</static>
+  <pose>-3 4 0 0 0 0</pose>
+  <link name="link">
+    <collision name="collision">
+      <geometry><box><size>2 0.2 1</size></box></geometry>
+    </collision>
+    <visual name="visual">
+      <geometry><box><size>2 0.2 1</size></box></geometry>
+      <material><ambient>0.3 0.9 0.3 1</ambient></material>
+    </visual>
+  </link>
+</model>
+
+<!-- Inner Maze Wall 2: Top Horizontal -->
+<model name="inner_wall_top_horizontal2">
+  <static>true</static>
+  <pose>1.5 4 0 0 0 0</pose>
+  <link name="link">
+    <collision name="collision">
+      <geometry><box><size>5 0.2 1</size></box></geometry>
+    </collision>
+    <visual name="visual">
+      <geometry><box><size>5 0.2 1</size></box></geometry>
+      <material><ambient>0.3 0.9 0.3 1</ambient></material>
+    </visual>
+  </link>
+</model>
+
+<!-- Inner Maze Wall 3: Right Vertical -->
+<model name="inner_wall_right">
+  <static>true</static>
+  <pose>4 -1 0 0 0 0</pose>
+  <link name="link">
+    <collision name="collision">
+      <geometry><box><size>0.2 10 1</size></box></geometry>
+    </collision>
+    <visual name="visual">
+      <geometry><box><size>0.2 10 1</size></box></geometry>
+      <material><ambient>0.9 0.4 0.4 1</ambient></material>
+    </visual>
+  </link>
+</model>
+
+<!-- Inner Maze Wall 3: Right Vertical -->
+<model name="inner_wall_right2">
+  <static>true</static>
+  <pose>2 -1 0 0 0 0</pose>
+  <link name="link">
+    <collision name="collision">
+      <geometry><box><size>0.2 8 1</size></box></geometry>
+    </collision>
+    <visual name="visual">
+      <geometry><box><size>0.2 8 1</size></box></geometry>
+      <material><ambient>0.9 0.4 0.4 1</ambient></material>
+    </visual>
+  </link>
+</model>
+
+<!-- Inner Maze Wall 4: Bottom Horizontal on Right -->
+<model name="inner_wall_bottom_right">
+  <static>true</static>
+  <pose>-1 -4 0 0 0 0</pose>
+  <link name="link">
+    <collision name="collision">
+      <geometry><box><size>6 0.2 1</size></box></geometry>
+    </collision>
+    <visual name="visual">
+      <geometry><box><size>6 0.2 1</size></box></geometry>
+      <material><ambient>0.6 0.6 0.3 1</ambient></material>
+    </visual>
+  </link>
+</model>
+
+<!-- Inner Maze Wall 5: Center Vertical -->
+<model name="inner_wall_center">
+  <static>true</static>
+  <pose>-1 1.0 0 0 0 0</pose>
+  <link name="link">
+    <collision name="collision">
+      <geometry><box><size>0.2 7.5 1</size></box></geometry>
+    </collision>
+    <visual name="visual">
+      <geometry><box><size>0.2 7.5 1</size></box></geometry>
+      <material><ambient>0.2 0.8 0.8 1</ambient></material>
+    </visual>
+  </link>
+</model>
+
+<!-- Inner Maze Wall 6: Bottom Horizontal on Left -->
+   <model name="obstacle1">
+    <static>true</static>
+    <pose>0.8 1 0 0 0 0</pose>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.7</radius>
+            <length>1</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="marker">
+        <geometry>
+          <cylinder>
+            <radius>0.7</radius>
+            <length>1.0</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0 1 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+  </model>
+
+<!-- Inner Maze Wall 6: Bottom Horizontal on Left -->
+   <model name="obstacle2">
+    <static>true</static>
+    <pose>-2.2 -1 0 0 0 0</pose>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.7</radius>
+            <length>1</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="marker">
+        <geometry>
+          <cylinder>
+            <radius>0.7</radius>
+            <length>1.0</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0 1 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+  </model>
+
+  </world>
+</sdf>
