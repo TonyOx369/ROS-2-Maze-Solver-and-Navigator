@@ -40,22 +40,35 @@ This ROS 2 package implements a complete autonomous navigation solution for a ro
 
 ## How to Build and Run
 
-1.  **Place the Code**: Make sure your package containing `maze_solver_node.cpp` is located inside the `src` folder of your ROS 2 workspace (e.g., `~/ros2_ws/src/your_package_name`).
-
-2.  **Build the Workspace**: Navigate to the root of your workspace and build the package using `colcon`.
+1.  **Create a workspace**
     ```bash
-    cd ~/ros2_ws
-    colcon build --packages-select your_package_name
+    mkdir -p ~/ros2_ws/src
+    ```
+2. **Clone this repository in your workspace**
+    ```bash
+    cd ~/ros2_ws/src
+    git clone https://github.com/TonyOx369/ROS-2-Maze-Solver-and-Navigator.git
     ```
 
-3.  **Source the Environment**: In every new terminal you open, you must source the workspace to make ROS 2 aware of your executable.
+3.  **Build the Workspace**: Navigate to the root of your workspace and build the package using `colcon`.
+    ```bash
+    cd ~/ros2_ws
+    colcon build --symlink-install
+    ```
+
+4.  **Source the Environment**: In every new terminal you open, you must source the workspace to make ROS 2 aware of your executable.
     ```bash
     source ~/ros2_ws/install/setup.bash
     ```
+5. **Export the turtlebot model and launch the turtlebot in the Maze environment**
+   ```bash
+    export TURTLEBOT3_MODEL=burger
+    ros2 launch turtlebot3_gazebo virya_test.launch.py 
+    ```
 
-4.  **Run the Node**: Launch the maze solver node.
+6.  **Run the Node**: Launch the maze solver node.
     ```bash
-    ros2 run your_package_name maze_solver_node
+    ros2 run maze_solver maze_solver_node
     ```
 
 ***
